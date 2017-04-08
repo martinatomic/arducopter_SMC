@@ -1,3 +1,5 @@
+% Testing Git + Matlab integration
+
 m = 0.25; % mass of a movable mass
 mq = 30.8; % mass of the quadrotor body (including gas motors) IZRACUNATI
 M = mq + 4 * m;  % total mass
