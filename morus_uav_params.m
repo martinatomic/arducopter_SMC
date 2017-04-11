@@ -1,6 +1,6 @@
 % Testing Git + Matlab integration
 
-m = 0.25; % mass of a movable mass
+m = 0.208; % mass of a movable mass
 %mq = 30.8; % mass of the quadrotor body (including gas motors) IZRACUNATI
 mq = 2.083;
 M = mq + 4 * m;  % total mass
@@ -8,17 +8,21 @@ g = 9.81;   %gravity constant
 cd = 0;     % drag constant (translational) BILO 1.5
 beta = deg2rad(0);   % inclination angle of the motor arms
 beta_gm = deg2rad(0); % this is additional angle of the gas motor prop w.r.t. the motor arm MATIJA
-zm = 0.05; % mass displacement iz z-axis OKO 0, MOZDA MLAO NEGATIVNO - TREBA IZRACUNATI
+%zm = 0.05; % mass displacement iz z-axis OKO 0, MOZDA MLAO NEGATIVNO - TREBA IZRACUNATI
+zm = 0;
 Km = 1; % voltage to acceleration
 
 %lm = 0.6; % mass path maximal length
-lm = 0.315
+%lm = 0.315
+lm = 0.17;
 %arm_offset = 0.1; % motor arm offset from the origin IZMJERITI
-arm_offset = 0.04579;
+arm_offset = 0.082;
 l = lm + arm_offset; % motor arm length
-l_rot = 0.1 % IZRACUNATI
+l_rot = 0.3 % IZRACUNATI
 % rotoc-centar uvesti jos
-Tr = 100; % transmission rate
+%Tr = 100; % transmission rate  
+% met/rad puni krug
+Tr = 12.24268;
 %Iq_xx = 5.5268 + 0.2;  % moment of inertia of the quadrotor body (without masses)
 Iq_xx = 0.00528525;
 %Iq_yy = 5.5268 + 0.2; % YAML
@@ -26,7 +30,11 @@ Iq_yy = 0.00528250;
 %Iq_zz = 6.8854 + 0.4;
 Iq_zz = 0.0104;
 Iq = [Iq_xx 0 0; 0 Iq_yy 0; 0 0 Iq_zz];
-I_yy = 0.0176;
+
+Iyy_b = 0.00528250;
+Iyy_mm = m * (lm/2)^2;
+Iyy = Iyy_b + 2 * Iyy_mm
+%I_yy = 0.0176;
 
 %%
 % gas motor params
