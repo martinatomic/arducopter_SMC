@@ -1,4 +1,5 @@
 %%%%% DIPLOMSKI RAD %%%%%
+clear; clc;
 
 %% Inicijalizacija konstanti
 
@@ -22,10 +23,10 @@ Iq = [Iq_xx 0 0; 0 Iq_yy 0; 0 0 Iq_zz];
 % MOMENT INERCIJE LETJELICE Iyy
 Iyy_b = 0.00528250;
 Iyy_mm = m * (lm/2)^2;      % Pretpostavka tockaste mase
-Iyy = Iyy_b + 2 * Iyy_mm
+I_yy = Iyy_b + 2 * Iyy_mm
 
 % IDENTIFICIRANI MOMENT 
-Iyy = 0.0857;
+I_yy = 0.0857;
 
 % Ostali parametri
 g = 9.81;                   % Gravity constant
@@ -57,8 +58,9 @@ zeta = [1 -1 1 -1];         % [cw ccw cw ccw]
 kp_mp = 25;
 ki_mp = 0.25 ;
 kd_mp = 0.015;
+
 kp_mv = 0.6;
-ki_mv = 0.6;
+ki_mv = 06;
 kd_mv = 0.01;
 
 %% Height control params
@@ -75,16 +77,34 @@ kd_z = 1;
 
 %% Referenca prefiltar
 
-Tf1 = 0.2;
-Tf2 = 0.2;
+Tf1 = 0.12;
+Tf2 = 0.12;
+
+%% Q - filter
+T_obz1 = 5;
+T_obz2 = 5;
+D = 0.01;
 
 %% RUN SIM
-sim('morus_uav_smc_EXT');
+%sim('morus_uav_smc_EXT');
 
 %% PLOT
 
 figure
-plot(smc(:,1), smc(:,2), 'LineWidth', 1.5)
+plot(smc(:,1), smc(:,2))
 hold on;
 plot(smc(:,1), smc(:,3))
 grid on; 
+title('Odziv na referencu')
+
+
+figure 
+plot(masa_ref(:,1), masa_ref(:,2))
+title('Referenca na masu')
+grid on;
+
+figure
+plot(delta(:,1), delta(:,2))
+grid on;
+title('DOB \delta')
+
