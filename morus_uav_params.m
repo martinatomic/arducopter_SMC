@@ -42,9 +42,9 @@ Tr = 12.24268;              % Transmission rate [m/rad]
 
 %% GAS MOTOR PARAMS
 
-Tgm = 0.2;                  % Time constant
-w_gm_n = 7000 / 60 * 2*pi;  % rpm to rad/s
-F_n = 25 * 9.81;
+Tgm = 0.025;                % Time constant
+w_gm_n = 6000 / 60 * 2*pi;  % rpm to rad/s
+F_n = 0.5 * 9.81;
 b_gm_f = F_n / (w_gm_n^2);
 b_gm_m = 0.01;              % Lucky guess
 
@@ -89,22 +89,22 @@ D = 0.01;
 %sim('morus_uav_smc_EXT');
 
 %% PLOT
-
-figure
-plot(smc(:,1), smc(:,2))
-hold on;
-plot(smc(:,1), smc(:,3))
-grid on; 
-title('Odziv na referencu')
-
-
-figure 
-plot(masa_ref(:,1), masa_ref(:,2))
-title('Referenca na masu')
-grid on;
-
-figure
-plot(delta(:,1), delta(:,2))
-grid on;
-title('DOB \delta')
+% 
+% figure
+% plot(smc(:,1), smc(:,2))
+% hold on;
+% plot(smc(:,1), smc(:,3))
+% grid on; 
+% title('Odziv na referencu')
+% 
+% 
+% figure 
+% plot(masa_ref(:,1), masa_ref(:,2))
+% title('Referenca na masu')
+% grid on;
+% 
+% figure
+% plot(delta(:,1), delta(:,2))
+% grid on;
+% title('DOB \delta')
 
