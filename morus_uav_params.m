@@ -15,18 +15,21 @@ l = lm + arm_offset;        % Motor - arm length
 l_rot = 0.265               % Rotor - center length
 
 % MOMENTI INERCIJE - BODY (WITHOUT MASSES) (yaml)
-Iq_xx = 0.00528525; 
+Iq_xx = 0.00528525;
+Iq_xx = 0.0827;
 Iq_yy = 0.00528250;
+Iq_yy = 0.0827;
 Iq_zz = 0.0104;
 Iq = [Iq_xx 0 0; 0 Iq_yy 0; 0 0 Iq_zz];
 
 % MOMENT INERCIJE LETJELICE Iyy
 Iyy_b = 0.00528250;
-Iyy_mm = m * (lm/2)^2;      % Pretpostavka tockaste mase
-I_yy = Iyy_b + 2 * Iyy_mm
+Iyy_mm = m * (lm/2)^2      % Pretpostavka tockaste mase
+I_yy = Iyy_b + 2 * Iyy_mm;
 
 % IDENTIFICIRANI MOMENT 
 I_yy = 0.0857;
+I_yy - 2*(Iyy_mm)
 
 % Ostali parametri
 g = 9.81;                   % Gravity constant
@@ -77,8 +80,8 @@ kd_z = 1;
 
 %% Referenca prefiltar
 
-Tf1 = 0.12;
-Tf2 = 0.12;
+Tf1 = 0.17;
+Tf2 = 0.17;
 
 %% Q - filter
 T_obz1 = 5;
@@ -102,7 +105,7 @@ D = 0.01;
 % plot(masa_ref(:,1), masa_ref(:,2))
 % title('Referenca na masu')
 % grid on;
-% 
+
 % figure
 % plot(delta(:,1), delta(:,2))
 % grid on;
