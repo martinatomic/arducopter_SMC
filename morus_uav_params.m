@@ -33,7 +33,7 @@ I_yy - 2*(Iyy_mm)
 
 % Ostali parametri
 g = 9.81;                   % Gravity constant
-cd = 0;                     % Drag constant (translational)
+cd = 1;                     % Drag constant (translational)
 
 beta = deg2rad(0);          % Inclination angle of the motor arms 0 deg
 beta_gm = deg2rad(0);       % This is additional angle of the gas motor prop w.r.t. the motor arm MATIJA
@@ -87,6 +87,10 @@ Tf2 = 0.17;
 T_obz1 = 5;
 T_obz2 = 5;
 D = 0.01;
+
+%% 
+zr = 0.05; % odokativno
+flapping = cd * 0.25; % 25% ukupne sile trenja koja djeluje prilikom translacijskog gibanja otpada na flap
 
 %% RUN SIM
 %sim('morus_uav_smc_EXT');
