@@ -58,13 +58,15 @@ zeta = [1 -1 1 -1];         % [cw ccw cw ccw]
 
 %% Mass PID default params
 
-kp_mp = 25;
+kp_mp = 62;
 ki_mp = 0.25 ;
-kd_mp = 0.015;
+kd_mp = 0.7;
 
 kp_mv = 0.6;
-ki_mv = 06;
+ki_mv = 0.06;
 kd_mv = 0.01;
+
+%sim('mase_dinam.slx')
 
 %% Height control params
 
@@ -84,11 +86,11 @@ Tf1 = 0.17;
 Tf2 = 0.17;
 
 %% Q - filter
-T_obz1 = 5;
-T_obz2 = 5;
-D = 0.01;
+T_obz1 = 0.3;
+T_obz2 = 0.2;
+D = 5;
 
-%% 
+%% FLAPPING
 zr = 0.05; % odokativno
 flapping = cd * 0.25; % 25% ukupne sile trenja koja djeluje prilikom translacijskog gibanja otpada na flap
 
