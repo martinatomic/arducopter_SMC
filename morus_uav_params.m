@@ -99,21 +99,26 @@ flapping = cd * 0.25; % 25% ukupne sile trenja koja djeluje prilikom translacijs
 
 %% PLOT
 % 
-% figure
-% plot(smc(:,1), smc(:,2))
-% hold on;
-% plot(smc(:,1), smc(:,3))
-% grid on; 
-% title('Odziv na referencu')
+figure
+plot(smc(:,1), smc(:,2))
+hold on;
+plot(smc(:,1), smc(:,3), 'LineWidth', 1.5)
+grid on; 
+title('Odziv na referencu')
 % 
 % 
-% figure 
-% plot(masa_ref(:,1), masa_ref(:,2))
-% title('Referenca na masu')
-% grid on;
+figure 
+plot(masa_ref(:,1), masa_ref(:,2), 'LineWidth', 1.5)
+title('Referenca na masu')
+grid on;
 
 % figure
 % plot(delta(:,1), delta(:,2))
 % grid on;
 % title('DOB \delta')
+
+% figure
+% plot(masa1(:,1), masa1(:,2), 'LineWidth', 2)
+% grid on;
+% title('Odziv masa 1')
 
